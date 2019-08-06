@@ -47,6 +47,9 @@
           <ng-template [ngSwitchCase]="'text'" ngSwitchDefault>
             {{dataPathUtils.extractDataFromResponse(row, field.dataPath, field.name)}}
           </ng-template>
+          <ng-template [ngSwitchCase]="'object'">
+            {{dataPathUtils.extractDataFromResponse(row, field.dataPath, field.name) | json}}
+          </ng-template>
           <ng-template [ngSwitchCase]="'url'">
             <a target="_blank" href="{{extractFieldUrl(field, dataPathUtils.extractDataFromResponse(row, field.dataPath, field.name))}}">
               {{dataPathUtils.extractDataFromResponse(row, field.dataPath, field.name)}}
